@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/dashboard-admira/static/css/main.e5b75387.css",
-    "main.js": "/dashboard-admira/static/js/main.a499caee.js",
+    "main.css": "/dashboard-admira/static/css/main.7a9a279f.css",
+    "main.js": "/dashboard-admira/static/js/main.d3e6a72d.js",
     "static/media/avatar.png": "/dashboard-admira/static/media/avatar.e3cd3b0fdf1e6d7c4cca.png",
     "index.html": "/dashboard-admira/index.html",
-    "main.e5b75387.css.map": "/dashboard-admira/static/css/main.e5b75387.css.map",
-    "main.a499caee.js.map": "/dashboard-admira/static/js/main.a499caee.js.map"
+    "main.7a9a279f.css.map": "/dashboard-admira/static/css/main.7a9a279f.css.map",
+    "main.d3e6a72d.js.map": "/dashboard-admira/static/js/main.d3e6a72d.js.map"
   },
   "entrypoints": [
-    "static/css/main.e5b75387.css",
-    "static/js/main.a499caee.js"
+    "static/css/main.7a9a279f.css",
+    "static/js/main.d3e6a72d.js"
   ]
 }
