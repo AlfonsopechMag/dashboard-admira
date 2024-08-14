@@ -5,10 +5,10 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Responsi
 
 
 export default function Expenses() {
-  const {data, loading} = useFetch("json/gAnalytics.json");
+  /* const {data, loading} = useFetch("json/gAnalytics.json"); */
   const [dataChart, setDataChart] = useState([])
   
-  useEffect(()=>{
+  /* useEffect(()=>{
     !loading &&  
       data.vistasPagina.map((value, keyVista)=>{                
         data.sesiones.map((sesiones)=>{                 
@@ -16,7 +16,7 @@ export default function Expenses() {
           setDataChart(data.vistasPagina)
         })
       });
-  },[loading])  
+  },[loading]) */  
 
   return (
     <div className="expenses">

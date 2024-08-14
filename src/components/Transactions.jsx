@@ -13,6 +13,7 @@ import {
   Rectangle,
 } from 'recharts';
 
+
 let dataGraphic = null;
 
 // using Customized gives you access to all relevant chart props
@@ -43,68 +44,51 @@ const CustomizedRectangle = (props) => {
 
 
 export default function Transactions() {
-  const {data, loading} = useFetch("json/gAnalytics.json")
+  const {data, loading, error} = useFetch("../json/gAnalytics.json")
   
   useEffect(()=>{
-    !loading &&  
-    data.vistasPagina.map((value, keyVista)=>{            
-      data.sesiones.map((sesiones)=>{                         
-          value.fecha == sesiones.fecha && (data.vistasPagina[keyVista].sesiones = sesiones.sesiones);
-         dataGraphic = data.vistasPagina
-      })
-    });
+    error === "" &&
+      data.vistasPagina.map((value, keyVista)=>{            
+        data.sesiones.map((sesiones)=>{                         
+            value.fecha == sesiones.fecha && (data.vistasPagina[keyVista].sesiones = sesiones.sesiones);
+            dataGraphic = data.vistasPagina
+        })
+      });
   },[loading])
   
   return (
     <div className="transactions">
       <div className="transactions__info">
         <h3>Transactions</h3>
-        <div className="transactions__info__detailed">
-          <div>
-            <h5>You Bought :</h5>
-            <h4>$140,734.01</h4>
-          </div>
-          <div>
-            <h5>You Sold : </h5>
-            <h4>$347,735,011.14</h4>
-          </div>
-        </div>
-      </div>
-      <div className="transactions__details">
-        <div>
-          <h4>Statistics</h4>
-          <h4>Up by 50%</h4>
-        </div>
-        <div>
-          <button>Year</button>
-          <button>Month</button>
-        </div>
       </div>
       <div className="transactions__graph">
-       
+        {
+          error != "" ? <div className="d-flex justify-content-center"> <span className="text-center">No data found</span></div> :
 
-<ResponsiveContainer width="100%" height={150}>
-      <LineChart
-        width={500}
-        height={300}
-        data={dataGraphic}
-        margin={{
-          top: 5,
-          right: 30,
-          left: 20,
-          bottom: 5,
-        }}
-      >
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="fecha" />
-        <YAxis />
-        <Tooltip />
-        <Legend />
-        <Line type="monotone" dataKey="sesiones" stroke="#8884d8" />
-        <Line type="monotone" dataKey="vistas" stroke="#82ca9d" />
-        <Customized component={CustomizedRectangle} />
-      </LineChart>
-    </ResponsiveContainer>
+          <ResponsiveContainer width="100%" height={150}>
+              <LineChart
+                width={500}
+                height={300}
+                data={dataGraphic}
+                margin={{
+                  top: 5,
+                  right: 30,
+                  left: 20,
+                  bottom: 5,
+                }}
+              >
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="fecha" />
+                <YAxis />
+                <Tooltip />
+                <Legend />
+                <Line type="monotone" dataKey="sesiones" stroke="#8884d8" />
+                <Line type="monotone" dataKey="vistas" stroke="#82ca9d" />
+                <Customized component={CustomizedRectangle} />
+              </LineChart>
+        </ResponsiveContainer>
+        }
+        
       </div>
     </div>
   );

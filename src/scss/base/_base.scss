@@ -47,3 +47,24 @@ body {
       border-radius: 10rem;
     }
   }
+
+  @media only screen and (max-width : 900px) {
+    body{
+      .dashboard {
+        z-index: 1;
+        display: flex;
+        height: 180vh;
+        position: relative;
+      }
+
+      .shapes__1 {
+       display: none;
+      }
+      .shapes__2 {
+        display: none;
+      }
+      .shapes__3 {
+        display: none;
+      }
+    }
+  }

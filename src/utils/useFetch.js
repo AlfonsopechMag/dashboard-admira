@@ -10,9 +10,14 @@ export function useFetch(url){
         fetch(url)
         .then((response)=> response.json())
         .then((data)=>setData(data))
-        .catch((error)=> console.log("error==>",error))
+        .catch((error)=> setError(error))
         .finally(()=> setLoading(false));                
-    }, []);
+    }, []);    
 
-    return {data, loading}
+    console.log("dataFetch==>",data);
+    console.log("errorFetch==>",error);
+    
+    
+
+    return {data, loading, error}
 }

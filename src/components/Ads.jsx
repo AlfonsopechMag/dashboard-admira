@@ -13,25 +13,22 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, per
 }
 
 export default function Overview() {
-  const {data, loading} = useFetch("json/gAnalytics.json");
+  /* const {data, loading} = useFetch("json/gAnalytics.json"); */
   const [dataChart, setDataChart] = useState([])
 
-  useEffect(()=>{
-    !loading &&                
-        data.demografia.edad.map((value, index)=>{
 
-          console.log(index);
-          
+  useEffect(()=>{
+   /*  loading === true &&                
+        data.demografia.edad.map((value, index)=>{          
           data.demografia.genero.map((generoValue)=>{
-            console.log(generoValue.tipo);
-            
+        
             data.demografia.edad[index].tipo = generoValue.tipo;
             data.demografia.edad[index].porcentaje_genero = generoValue.porcentaje;
                          
           })
           setDataChart(data.demografia.edad);
-        }) 
-  },[loading])
+        })  */
+  },[])
 
   console.log(dataChart);
   
